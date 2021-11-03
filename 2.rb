@@ -16,3 +16,15 @@
 #
 ## Решение:
 
+require 'digest/md5'
+
+user_input = gets.strip
+step = 0
+
+res = Digest::MD5.hexdigest(user_input + step.to_s)
+while res[0..4] != '00000'
+  step += 1
+  res = Digest::MD5.hexdigest(user_input + step.to_s)
+end
+
+puts step

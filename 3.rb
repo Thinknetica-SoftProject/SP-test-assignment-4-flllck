@@ -10,4 +10,9 @@
 #
 ## Решение:
 
-
+res = File.foreach('data/3.txt').map { |line| line.split("\t").map(&:to_i) }
+sum = 0
+res.each do |i|
+  sum += i.max - i.min
+end
+puts sum

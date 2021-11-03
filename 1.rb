@@ -15,7 +15,16 @@
 #
 #
 ## Решение:
-
-
-
-
+File.open('data/1.txt', 'r') do |file|
+  arr = file.readlines.to_s.split('')
+  floor = 0
+  arr.each do |i|
+    case i
+    when '('
+      floor += 1
+    when ')'
+      floor -= 1
+    end
+  end
+  puts floor
+end

@@ -15,5 +15,14 @@
 #
 #
 ## Решение:
+res = File.foreach('data/4.txt').map { |line| line.split('x').map(&:to_i) }
+s_arr = []
+res.each do |i|
+  s_arr << i.sort
+end
 
-
+sum = 0
+s_arr.each do |i|
+  sum += ((2 * i[2] * i[0]) + (2 * i[0] * i[1]) + (2 * i[1] * i[2])) + i[0]**2
+end
+puts sum
